@@ -19,7 +19,7 @@
 
 import sys
 import socket
-import urllib2
+import urllib.request as request
 import subprocess
 from time import sleep
 
@@ -35,7 +35,7 @@ MESSAGE = get_command_msg(KEEP_ALIVE_CMD)
 ##
 ## HTTP GETs the URL that tells the GoPro to start streaming.
 ##
-urllib2.urlopen("http://10.5.5.9/gp/gpControl/execute?p1=gpStream&a1=proto_v2&c1=restart").read()
+request.urlopen("http://10.5.5.9/gp/gpControl/execute?p1=gpStream&a1=proto_v2&c1=restart").read()
 
 print("UDP target IP:", UDP_IP)
 print("UDP target port:", UDP_PORT)
